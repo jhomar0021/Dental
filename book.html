@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Appointment | Omar Dental Care</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Omar Dental Care</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About & Team</a>
+                <a href="services.html">Services</a>
+                <a href="book.html" class="active">Book Appointment</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container"
+        style="max-width:600px; background:white; padding:3rem; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.03);">
+        <h2>Book Your Appointment</h2>
+        <p style="margin-bottom:2rem; color:#666;">Fill out the reservation routing fields below, and our practice
+            operators will call you to confirm your calendar booking availability window.</p>
+
+        <form id="appointment-form">
+            <div class="form-group">
+                <label for="booking-name">Full Name</label>
+                <input type="text" id="booking-name" class="form-control" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+                <label for="booking-phone">Contact Phone Number</label>
+                <input type="tel" id="booking-phone" class="form-control" required placeholder="(555) 000-0000">
+            </div>
+            <div class="form-group">
+                <label for="booking-service">Requested Dental Treatment</label>
+                <select id="booking-service" class="form-control" required>
+                    <option value="">Select a clinic option...</option>
+                    <option value="preventative">Preventative Care & Cleanings</option>
+                    <option value="cosmetic">Cosmetic Dentistry & Whitening</option>
+                    <option value="restorative">Restorative Crowns & Bridges</option>
+                    <option value="implants">Advanced Dental Implants</option>
+                    <option value="orthodontics">Clear Aligner Therapy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="booking-date">Preferred Consultation Date</label>
+                <input type="date" id="booking-date" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:1rem; padding:1rem;">Submit
+                Appointment Request</button>
+        </form>
+    </div>
+
+    <!-- Updated Production-Ready Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Column 1: Brand Pitch & Socials -->
+                <div class="footer-col">
+                    <h4>Omar Dental Care</h4>
+                    <p>Bringing elite technical performance and compassionate, gentle oral healthcare milestones to our
+                        local community ecosystems.</p>
+                    <div class="footer-socials">
+                        <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Explore Practice</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Meet Our Doctors</a></li>
+                        <li><a href="services.html">Dental Treatments</a></li>
+                        <li><a href="book.html">Schedule Assessment</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Medical Service Shortcuts -->
+                <div class="footer-col">
+                    <h4>Our Treatments</h4>
+                    <ul>
+                        <li><a href="service-detail.html?id=preventative">Hygiene & Cleanings</a></li>
+                        <li><a href="service-detail.html?id=cosmetic">Veneers & Whitening</a></li>
+                        <li><a href="service-detail.html?id=implants">Advanced Implants</a></li>
+                        <li><a href="service-detail.html?id=orthodontics">Clear Aligners</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Operations -->
+                <div class="footer-col">
+                    <h4>Office Operations</h4>
+                    <p><strong>Hours:</strong><br>Mon – Fri: 8:00 AM – 6:00 PM<br>Sat: 9:00 AM – 2:00 PM</p>
+                    <p><strong>Location:</strong><br>100 Healthcare Blvd, Suite A<br><a href="https://maps.google.com"
+                            target="_blank" style="color: #ffb703; text-decoration: underline;">Get Directions</a></p>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Omar Dental Care. All Rights Reserved. All clinical credentials verified.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Patient Rights</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

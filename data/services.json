@@ -1,0 +1,67 @@
+[
+  {
+    "id": "preventative",
+    "title": "Preventative Care & Cleanings",
+    "description": "Routine dental exams, scale and clean, and digital X-rays to maintain long-term oral health.",
+    "longDescription": "Our comprehensive preventative program is designed to catch oral health issues before they develop into painful, costly conditions. Using cutting-edge ultra-low radiation digital diagnostics and ultrasonic scaling technology, we remove plaque buildup, screen for early signs of oral disease, and protect your enamel.",
+    "heroImage": "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1200",
+    "features": [
+      "Comprehensive 3D Scaling",
+      "Oral Cancer Screening",
+      "Fluoride Enamel Therapy",
+      "Custom Nightguards"
+    ]
+  },
+  {
+    "id": "cosmetic",
+    "title": "Cosmetic Dentistry & Whitening",
+    "description": "Transform your smile with professional in-chair teeth whitening, porcelain veneers, and smile design.",
+    "longDescription": "Achieve the balanced, bright smile you've always desired. Our cosmetic procedures blend dental medicine with artistry. Whether you require subtle composite bonding to repair chips or premium custom-fabricated porcelain veneers, we create a step-by-step digital map of your smile to ensure natural, beautiful symmetry.",
+    "heroImage": "https://images.unsplash.com/photo-1513415756790-29f76f643026?auto=format&fit=crop&q=80&w=1200",
+    "features": [
+      "In-Office Laser Whitening",
+      "Porcelain Veneers",
+      "Composite Bonding",
+      "Digital Smile Simulations"
+    ]
+  },
+  {
+    "id": "restorative",
+    "title": "Restorative Crowns & Bridges",
+    "description": "Repair broken, decayed, or missing teeth with high-grade porcelain dental crowns and bridges.",
+    "longDescription": "Damaged or decayed teeth don't just affect your appearance; they compromise your bite alignment and nutritional intake. Our restorative therapies utilize biocompatible materials to completely rebuild structures. We offer metal-free crowns milled perfectly to mimic real structural enamel performance.",
+    "heroImage": "https://images.unsplash.com/photo-1579684389782-64d84b5e901d?auto=format&fit=crop&q=80&w=1200",
+    "features": [
+      "Metal-Free Dental Crowns",
+      "Fixed Dental Bridges",
+      "Tooth-Colored Fillings",
+      "Root Canal Recovery"
+    ]
+  },
+  {
+    "id": "implants",
+    "title": "Advanced Dental Implants",
+    "description": "Permanent, life-like tooth replacement solutions using advanced biocompatible titanium posts.",
+    "longDescription": "Dental implants offer the closest match available to healthy, natural teeth. By surgically placing an advanced medical-grade titanium post into the jaw bone, we create a rock-solid structural foundation that prevents bone degradation and preserves the structural layout of your face.",
+    "heroImage": "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&q=80&w=1200",
+    "features": [
+      "Single Tooth Replacements",
+      "All-on-4 Implant Arches",
+      "Computer-Guided Surgery",
+      "Bone Grafting Options"
+    ]
+  },
+  {
+    "id": "orthodontics",
+    "title": "Clear Aligner Therapy",
+    "description": "Straighten your teeth discreetly and comfortably without metal brackets using clear aligners.",
+    "longDescription": "Straighten your smile invisibly without dealing with painful metal wires or food restrictions. Our clear aligner therapy uses sequential series of custom-molded, BPA-free medical polyurethane aligners that gently slide your teeth into their optimal alignment variants.",
+    "heroImage": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=1200",
+    "features": [
+      "Removable Translucent Aligners",
+      "Fewer Office Visits",
+      "Digital Alignment Previews",
+      "Teen & Adult Programs"
+    ]
+  }
+]

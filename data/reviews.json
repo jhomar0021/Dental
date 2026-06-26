@@ -1,0 +1,32 @@
+[
+  {
+    "patientName": "Arthur M.",
+    "rating": 5,
+    "comment": "I used to experience severe dental anxiety, but Dr. Jenkins and her team completely put me at ease. The cleanest and most professional practice I have ever visited!",
+    "date": "2026-05-14"
+  },
+  {
+    "patientName": "David K.",
+    "rating": 5,
+    "comment": "The clear aligner treatment completely changed my smile confidence. Highly recommend this practice for anyone looking for exceptional, friendly results.",
+    "date": "2026-06-02"
+  },
+  {
+    "patientName": "Samantha L.",
+    "rating": 5,
+    "comment": "Brought my kids here for their routine cleanings. Marcus was incredibly gentle, friendly, and patient. Finding a family-friendly dentist is a huge relief!",
+    "date": "2026-06-10"
+  },
+  {
+    "patientName": "Robert T.",
+    "rating": 5,
+    "comment": "Excellent experience with my dental implant surgery. Dr. Thorne explained every step thoroughly and the recovery was much faster than I originally expected.",
+    "date": "2026-06-18"
+  },
+  {
+    "patientName": "Fiona G.",
+    "rating": 5,
+    "comment": "The reception staff are remarkably welcoming and helpful with insurance processing. The clinic is beautiful, ultra-modern, and exceptionally clean.",
+    "date": "2026-06-25"
+  }
+]

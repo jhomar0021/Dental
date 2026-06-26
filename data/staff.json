@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Dr. Sarah Jenkins, DDS",
+    "role": "Lead Cosmetic Dentist",
+    "bio": "Graduated from NYU College of Dentistry with over 12 years of experience in aesthetic treatments and advanced implantology.",
+    "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "name": "Dr. Aris Thorne, DMD",
+    "role": "Specialist Oral Surgeon",
+    "bio": "Earned his degree from Harvard Dental Medicine, specializing in minimally invasive extractions and modern bone grafting.",
+    "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "name": "Marcus Vance, RDH",
+    "role": "Registered Dental Hygienist",
+    "bio": "Passionate about preventative care, patient education, and providing a gentle, anxiety-free cleaning experience.",
+    "image": "https://images.unsplash.com/photo-1622960748096-1983e5f17824?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "name": "Elena Rostova",
+    "role": "Clinical Coordinator",
+    "bio": "Ensures seamless clinical workflows and helps patients comfortably manage their customized long-term treatment plans.",
+    "image": "https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "name": "Chloe Bennett",
+    "role": "Practice Manager",
+    "bio": "Oversees day-to-day operations with a warm smile, assisting patients with scheduling, insurance claims, and flexible financing.",
+    "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
+  }
+]
