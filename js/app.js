@@ -1,204 +1,209 @@
-// Main Dental App Engine
+// Omar Dental Care - Application Processing Engine
 document.addEventListener("DOMContentLoaded", () => {
-  // Determine which containers exist on the current page
-  const servicesGrid = document.getElementById("services-grid");
+  // Structural DOM Hook targets
   const homeServicesSnippet = document.getElementById("home-services-snippet");
+  const servicesGrid = document.getElementById("services-grid");
   const homeReviewsSnippet = document.getElementById("home-reviews-snippet");
-  const staffContainer = document.getElementById("staff-container"); // Target container on about.html
+  const reviewsGrid =
+    document.getElementById("reviews-container") ||
+    document.getElementById("reviews-grid");
+  const staffContainer = document.getElementById("staff-container");
   const detailContainer = document.getElementById("dynamic-detail-target");
   const bookingForm = document.getElementById("appointment-form");
-  const reviewsGrid = document.getElementById("reviews-container");
 
-  // Homepage Service Component Injection
+  // Execution pipelines
   if (homeServicesSnippet)
-    fetchLimitAndRender(
+    runFetchAndInject(
       "./data/services.json",
       homeServicesSnippet,
-      renderServiceCard,
+      makeServiceBootstrapCard,
       3,
     );
-
-  // Homepage Top Reviews Filter Injections
-  if (homeReviewsSnippet)
-    fetchLimitAndRender(
-      "./data/reviews.json",
-      homeReviewsSnippet,
-      renderReviewCard,
-      2,
-    );
-
-  // Full Services List Page Injection
   if (servicesGrid)
-    fetchLimitAndRender(
+    runFetchAndInject(
       "./data/services.json",
       servicesGrid,
-      renderServiceCard,
+      makeServiceBootstrapCard,
     );
-
+  if (homeReviewsSnippet)
+    runFetchAndInject(
+      "./data/reviews.json",
+      homeReviewsSnippet,
+      makeReviewBootstrapCard,
+      2,
+    );
   if (reviewsGrid)
-    fetchLimitAndRender("./data/reviews.json", reviewsGrid, renderReviewCard);
-
-  // About Us Team Page Injection <-- THIS WAS MISSING
+    runFetchAndInject(
+      "./data/reviews.json",
+      reviewsGrid,
+      makeReviewBootstrapCard,
+    );
   if (staffContainer)
-    fetchLimitAndRender("./data/staff.json", staffContainer, renderStaffCard);
-
-  // Dynamic Individual Service Target router
-  if (detailContainer) initDetailPage(detailContainer);
-
-  // Booking Submission Form Management
-  if (bookingForm) initBookingForm(bookingForm);
+    runFetchAndInject(
+      "./data/staff.json",
+      staffContainer,
+      makeStaffBootstrapCard,
+    );
+  if (detailContainer) buildDynamicDetailPage(detailContainer);
+  if (bookingForm) setupFormBookingHandler(bookingForm);
 });
 
-// Fetch function that accepts rendering item display limits
-async function fetchLimitAndRender(url, container, templateFunc, limit = null) {
+// Primary Fetch & Loop Interface Engine
+async function runFetchAndInject(
+  dataPath,
+  htmlContainer,
+  markupBlueprint,
+  displayLimit = null,
+) {
   try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Resource structural pull breakdown");
-    let data = await response.json();
+    const fetchStream = await fetch(dataPath);
+    if (!fetchStream.ok)
+      throw new Error("Data stream lookup connection anomaly");
+    let activeRecords = await fetchStream.json();
 
-    container.innerHTML = "";
-    if (limit) data = data.slice(0, limit);
+    htmlContainer.innerHTML = "";
+    if (displayLimit) activeRecords = activeRecords.slice(0, displayLimit);
 
-    data.forEach((item) => {
-      container.innerHTML += templateFunc(item);
+    activeRecords.forEach((entry) => {
+      htmlContainer.innerHTML += markupBlueprint(entry);
     });
   } catch (err) {
-    console.error("Renderer runtime error:", err);
-    container.innerHTML = `<p style='color:red;'>Unable to pull digital catalog assets at this moment.</p>`;
+    console.error("Asynchronous processing breakdown:", err);
+    htmlContainer.innerHTML = `<div class="col-12 text-center text-danger py-4"><i class="fa-solid fa-triangle-exclamation fa-lg me-2"></i>Unable to parse content profiles at this time.</div>`;
   }
 }
 
-// Single Component Template Generators
-function renderServiceCard(item) {
-  // If we have long images array in json, find icon fallback or image
-  const image =
-    item.heroImage ||
-    "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=400";
+// Bootstrap Template Generation Filters
+function makeServiceBootstrapCard(obj) {
   return `
-        <div class="card">
-            <img src="${image}" alt="${item.title}" class="card-img">
-            <div class="card-body">
-                <div>
-                    <h3>${item.title}</h3>
-                    <p>${item.description}</p>
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="card custom-card w-100 d-flex flex-column">
+                <img src="${obj.heroImage}" class="card-img-top crop-img-320" alt="${obj.title}">
+                <div class="card-body d-flex flex-column justify-content-between p-4">
+                    <div>
+                        <h3 class="h5 mb-2">${obj.title}</h3>
+                        <p class="text-muted small mb-4">${obj.description}</p>
+                    </div>
+                    <a href="service-detail.html?id=${obj.id}" class="btn btn-outline-vibrant w-100 py-2">Explore Treatment Options</a>
                 </div>
-                <a href="service-detail.html?id=${item.id}" class="btn btn-outline" style="width:100%;">View Service Details</a>
             </div>
         </div>
     `;
 }
 
-function renderReviewCard(rev) {
+function makeReviewBootstrapCard(obj) {
   return `
-        <div class="card review-card">
-            <div class="rating">${"★".repeat(rev.rating)}</div>
-            <p>"${rev.comment}"</p>
-            <div class="review-meta">
-                <strong>- ${rev.patientName}</strong><br>
-                <small>Verified Client • ${rev.date}</small>
+        <div class="col-md-6 d-flex align-items-stretch">
+            <div class="testimonial-bubble w-100 shadow-sm d-flex flex-column justify-content-between">
+                <p class="text-secondary fst-italic mb-3">"${obj.comment}"</p>
+                <div>
+                    <div class="text-gold mb-1">${'<i class="fa-solid fa-star"></i>'.repeat(obj.rating)}</div>
+                    <strong class="text-dark d-block">${obj.patientName}</strong>
+                    <small class="text-muted text-uppercase tracking-wider" style="font-size:0.75rem;">Verified Patient • ${obj.date}</small>
+                </div>
             </div>
         </div>
     `;
 }
 
-// Dynamic Individual Service Detail Router Lifecycle
-async function initDetailPage(container) {
-  const urlParams = new URLSearchParams(window.location.search);
-  const serviceId = urlParams.get("id");
+function makeStaffBootstrapCard(obj) {
+  return `
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="card custom-card w-100 d-flex flex-column">
+                <img src="${obj.image}" class="staff-img-frame" alt="${obj.name}">
+                <div class="card-body p-4">
+                    <h3 class="h5 mb-1">${obj.name}</h3>
+                    <span class="text-info fw-bold small text-uppercase tracking-wide d-block mb-2">${obj.role}</span>
+                    <p class="text-muted small mb-0">${obj.bio}</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
 
-  if (!serviceId) {
-    container.innerHTML =
-      "<h2>Service Not Found</h2><p><a href='services.html'>Return to clinic structural catalogs.</a></p>";
+// Bootstrap Dynamic Single Page Router Config
+async function buildDynamicDetailPage(targetDiv) {
+  const routingParameters = new URLSearchParams(window.location.search);
+  const serviceLookupKey = routingParameters.get("id");
+
+  if (!serviceLookupKey) {
+    targetDiv.innerHTML = `<div class="container text-center py-5"><h3>No Treatment Identity Specified</h3><a href="services.html" class="btn btn-vibrant mt-3">View Matrix Catalog</a></div>`;
     return;
   }
 
   try {
-    const response = await fetch("./data/services.json");
-    const services = await response.json();
-    const matchedService = services.find((s) => s.id === serviceId);
+    const catalogFetch = await fetch("./data/services.json");
+    const treatmentArray = await catalogFetch.json();
+    const targetedObj = treatmentArray.find(
+      (item) => item.id === serviceLookupKey,
+    );
 
-    if (!matchedService) {
-      container.innerHTML = "<h2>Service Entry Not Found</h2>";
+    if (!targetedObj) {
+      targetDiv.innerHTML = `<div class="container text-center py-5"><h3>Target Treatment Profile Does Not Exist</h3></div>`;
       return;
     }
 
-    // Complete structural layout configuration
-    document.title = `${matchedService.title} | Apex Dental Care`;
-    container.innerHTML = `
-            <img src="${matchedService.heroImage}" alt="${matchedService.title}" class="detail-hero">
-            <div class="detail-layout">
-                <div>
-                    <h2>${matchedService.title}</h2>
-                    <p style="font-size:1.15rem; color:#4a5568; margin-bottom:2rem; line-height:1.8;">${matchedService.longDescription}</p>
-                    
-                    <h3>Key Procedure Offerings</h3>
-                    <ul class="feature-list">
-                        ${matchedService.features.map((f) => `<li>${f}</li>`).join("")}
-                    </ul>
-                </div>
-                <div>
-                    <div class="sidebar-box">
-                        <h3>Ready for a Consultation?</h3>
-                        <p style="margin-bottom:1.5rem; color:#e2e8f0; font-size:0.95rem;">Book an assessment window for ${matchedService.title} with our clinical leads today.</p>
-                        <a href="book.html?service=${matchedService.id}" class="btn btn-primary" style="display:block;">Schedule Appointment</a>
+    document.title = `${targetedObj.title} | Omar Dental Care`;
+    targetDiv.innerHTML = `
+            <div class="container py-4">
+                <div class="row g-5 align-items-start">
+                    <div class="col-lg-7">
+                        <img src="${targetedObj.heroImage}" class="img-fluid rounded-4 shadow mb-4 w-100" style="max-height: 400px; object-fit: cover;" alt="${targetedObj.title}">
+                        <h1 class="display-5 mb-3">${targetedObj.title}</h1>
+                        <p class="lead text-secondary mb-4">${targetedObj.longDescription}</p>
+                        
+                        <h4 class="mb-3">Advanced Technical Offerings Inside This Track</h4>
+                        <div class="row g-3">
+                            ${targetedObj.features
+                              .map(
+                                (feat) => `
+                                <div class="col-sm-6">
+                                    <div class="p-3 bg-white border-start border-3 border-info rounded shadow-sm d-flex align-items-center">
+                                        <i class="fa-solid fa-circle-check text-info me-2"></i> <span class="fw-semibold small">${feat}</span>
+                                    </div>
+                                </div>
+                            `,
+                              )
+                              .join("")}
+                        </div>
+                    </div>
+                    <div class="col-lg-5 position-sticky" style="top: 110px;">
+                        <div class="p-4 p-xl-5 text-white rounded-4 shadow-lg" style="background: linear-gradient(135deg, #004b57 0%, #00b4d8 100%);">
+                            <h3 class="text-gold mb-3">Schedule Your Care Consultation</h3>
+                            <p class="small text-light-emphasis mb-4">Book a diagnostic evaluation session for this specific treatment tracking path with our operations directors today.</p>
+                            <a href="book.html?service=${targetedObj.id}" class="btn btn-vibrant w-100 btn-lg">Request Priority Booking Window</a>
+                        </div>
                     </div>
                 </div>
             </div>
         `;
   } catch (err) {
-    container.innerHTML =
-      "<p>Critical internal error loading service profiles.</p>";
+    targetDiv.innerHTML = `<div class="container text-center py-5 text-danger">An internal database system connectivity loop error occurred.</div>`;
   }
 }
 
-// Interactive Appointment Handling Simulation
-function initBookingForm(form) {
-  // Auto-select option matching URL parameters if applicable
-  const urlParams = new URLSearchParams(window.location.search);
-  const preselectedService = urlParams.get("service");
-  const serviceSelect = document.getElementById("booking-service");
+// Booking Interactivity Matrix Setup
+function setupFormBookingHandler(formElement) {
+  const parameters = new URLSearchParams(window.location.search);
+  const selectedFlag = parameters.get("service");
+  const systemSelector = document.getElementById("booking-service");
 
-  if (preselectedService && serviceSelect) {
-    serviceSelect.value = preselectedService;
+  if (selectedFlag && systemSelector) {
+    systemSelector.value = selectedFlag;
   }
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  formElement.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    const inputName = document.getElementById("booking-name").value;
+    const inputDate = document.getElementById("booking-date").value;
 
-    // Form collection data modeling
-    const appointmentData = {
-      name: document.getElementById("booking-name").value,
-      phone: document.getElementById("booking-phone").value,
-      service: serviceSelect.value,
-      date: document.getElementById("booking-date").value,
-    };
-
-    // UI success animation override
-    form.innerHTML = `
-            <div style="text-align:center; padding:3rem 0; color:#03045e;">
-                <h3 style="margin-bottom:1rem; font-size:1.8rem;">✓ Appointment Request Received!</h3>
-                <p style="color:#555; max-width:450px; margin:0 auto;">Thank you, <strong>${appointmentData.name}</strong>. Our Practice Management team will contact you shortly via phone to confirm your slot on <strong>${appointmentData.date}</strong>.</p>
-                <a href="index.html" class="btn btn-outline" style="margin-top:2rem;">Return Home</a>
+    formElement.parentElement.innerHTML = `
+            <div class="text-center py-5 px-3">
+                <div class="display-3 text-success mb-3"><i class="fa-solid fa-circle-check"></i></div>
+                <h3 class="mb-2">Appointment Order Initiated!</h3>
+                <p class="text-muted mx-auto" style="max-width: 420px;">Thank you, <strong>${inputName}</strong>. Our clinical routing staff will dial your contact line directly within 2 business hours to finalize your calendar slot for <strong>${inputDate}</strong>.</p>
+                <a href="index.html" class="btn btn-outline-vibrant mt-3">Return to Main Dashboard</a>
             </div>
         `;
   });
-}
-function renderStaffCard(member) {
-  // If a local image doesn't exist, we fall back to a high-quality Unsplash avatar
-  const image =
-    member.image ||
-    "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400";
-
-  return `
-        <div class="card">
-            <div class="staff-img-wrapper">
-                <img class="staff-img" src="${image}" alt="${member.name}">
-            </div>
-            <div style="padding-top: 1rem;">
-                <h3>${member.name}</h3>
-                <div class="staff-role">${member.role}</div>
-                <p style="margin-top: 0.5rem; color: #555;">${member.bio}</p>
-            </div>
-        </div>
-    `;
 }

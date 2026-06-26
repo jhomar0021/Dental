@@ -1,459 +1,175 @@
-/* Global Reset & Core Styling */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* ==========================================================================
+   Omar Dental Care - Vibrant Master Stylesheet
+   ========================================================================== */
+
+:root {
+  --primary-deep: #004b57; /* Rich Deep Teal */
+  --accent-bright: #00b4d8; /* High-Energy Electric Teal */
+  --mint-fresh: #c7f9cc; /* Soft Mint Background Pop */
+  --coral-gold: #ffb703; /* Vibrant Sunlit Amber Accent */
+  --warm-light: #f8fbfb; /* Off-white glowing base */
+  --slate-dark: #1e293b; /* Premium Charcoal Text */
 }
+
 body {
-  font-family: "Segoe UI", system-ui, sans-serif;
-  line-height: 1.6;
-  color: #2c3e50;
-  background-color: #f4f7f9;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Sticky Navigation Layout */
-header {
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.2rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo h1 {
-  color: #0077b6;
-  font-size: 1.6rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-nav a {
-  color: #555;
-  margin-left: 24px;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-nav a:hover,
-nav a.active {
-  color: #0077b6;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: var(--warm-light);
+  color: var(--slate-dark);
 }
 
-/* Main Page Structural Constraints */
-.container {
-  max-width: 1200px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-}
-h2 {
-  color: #03045e;
-  margin-bottom: 2rem;
-  font-size: 2.2rem;
-  position: relative;
-  padding-left: 15px;
-  border-left: 5px solid #0077b6;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-}
-
-/* Component Cards */
-.card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  border: 1px solid #eef2f6;
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-}
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 119, 182, 0.1);
-}
-.card-body {
-  padding: 2rem;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.card h3 {
-  color: #03045e;
-  margin-bottom: 0.8rem;
-  font-size: 1.4rem;
-}
-.card p {
-  color: #666;
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Images & Visual Overlays */
-.card-img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-.hero {
+/* Vibrant Hero Customization */
+.vibrant-hero {
   background:
     linear-gradient(
       135deg,
-      rgba(0, 119, 182, 0.92) 0%,
-      rgba(3, 4, 94, 0.9) 100%
+      rgba(0, 75, 87, 0.95) 0%,
+      rgba(0, 180, 216, 0.85) 100%
     ),
-    url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200");
+    url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1600");
   background-size: cover;
   background-position: center;
-  color: white;
-  padding: 8rem 2rem;
-  text-align: center;
-}
-.hero h2 {
-  color: white;
-  border: none;
-  padding: 0;
-  font-size: 3.2rem;
-  margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.3rem;
-  max-width: 700px;
-  margin: 0 auto 2.5rem;
-  opacity: 0.95;
-}
-
-/* Shared Button Components */
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.8rem;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: all 0.3s;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-}
-.btn-primary {
-  background: #ffb703;
-  color: #03045e;
-}
-.btn-primary:hover {
-  background: #fb8500;
-}
-.btn-outline {
-  border: 2px solid #0077b6;
-  color: #0077b6;
-  background: transparent;
-}
-.btn-outline:hover {
-  background: #0077b6;
-  color: white;
-}
-
-/* Homepage Brief About Teaser Layout */
-.about-teaser {
-  display: flex;
-  gap: 4rem;
-  align-items: center;
-  margin: 5rem 0;
-}
-.about-teaser-text {
-  flex: 1;
-}
-.about-teaser-img {
-  flex: 1;
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-/* Review Component Variations */
-.review-card {
-  border-top: 5px solid #0077b6;
-  padding: 2rem;
-  background: white;
-  border-radius: 10px;
-}
-.rating {
-  color: #ffb703;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-.review-meta {
-  margin-top: 1rem;
-  color: #777;
-  font-size: 0.9rem;
-}
-.center-action {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-/* Service Single Detail Page Layout */
-.detail-layout {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
-  margin-top: 2rem;
-}
-.detail-hero {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 2rem;
-}
-.feature-list {
-  list-style: none;
-  margin: 1.5rem 0;
-}
-.feature-list li {
-  padding: 0.5rem 0 0.5rem 30px;
   position: relative;
-  font-weight: 500;
+  overflow: hidden;
 }
-.feature-list li::before {
-  content: "✓";
+
+/* Wave Cutout Overlay */
+.hero-wave {
   position: absolute;
+  bottom: 0;
   left: 0;
-  color: #0077b6;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-.sidebar-box {
-  background: #03045e;
-  color: white;
-  padding: 2.5rem;
-  border-radius: 12px;
-  position: sticky;
-  top: 120px;
-}
-.sidebar-box h3 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-}
-
-/* Interactive Forms (Booking) */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #333;
-}
-.form-control {
   width: 100%;
-  padding: 0.8rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-family: inherit;
-}
-.form-control:focus {
-  border-color: #0077b6;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 119, 182, 0.15);
+  overflow: hidden;
+  line-height: 0;
 }
 
-/* ==========================================================================
-   Omar Dental Care - Production Footer Layout
-   ========================================================================== */
-footer {
-  background: #03045e;
-  color: #ffffff;
-  padding: 5rem 2rem 2rem;
-  margin-top: 8rem;
-  font-size: 0.95rem;
+.hero-wave svg {
+  position: relative;
+  display: block;
+  width: calc(130% + 1.3px);
+  height: 60px;
+  fill: var(--warm-light);
 }
 
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 3.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 3.5rem;
-}
-
-.footer-col h4 {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  color: #ffb703; /* Gold accents */
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.footer-col p {
-  color: #cbd5e1;
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
-}
-
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-col ul li {
-  margin-bottom: 0.8rem;
-}
-
-.footer-col ul li a {
-  color: #cbd5e1;
+/* Card Enhancements & Hover Graphics */
+.custom-card {
+  border: none;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 75, 87, 0.04);
   transition:
-    color 0.2s,
-    padding-left 0.2s;
-  display: inline-block;
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease;
+  overflow: hidden;
 }
 
-.footer-col ul li a:hover {
-  color: #ffb703;
+.custom-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 180, 216, 0.15);
+}
+
+/* Image Aspect Constraints */
+.crop-img-320 {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.staff-img-frame {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 800;
+  color: var(--primary-deep);
+}
+
+.text-gold {
+  color: var(--coral-gold);
+}
+
+/* Buttons Styling */
+.btn-vibrant {
+  background-color: var(--coral-gold);
+  color: var(--primary-deep) !important;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.btn-vibrant:hover {
+  background-color: #e0a100;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 183, 3, 0.3);
+}
+
+.btn-outline-vibrant {
+  border: 2px solid var(--accent-bright);
+  color: var(--primary-deep);
+  font-weight: 700;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-vibrant:hover {
+  background-color: var(--accent-bright);
+  color: #ffffff !important;
+}
+
+/* Custom Interactive Testimonial Bubbles */
+.testimonial-bubble {
+  background: #ffffff;
+  border-left: 5px solid var(--accent-bright);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Bottom Footer Branding Styles */
+footer {
+  background-color: var(--primary-deep);
+  color: #e2e8f0;
+}
+
+.footer-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--coral-gold);
   padding-left: 4px;
 }
 
-/* Social Icon Badges Container */
-.footer-socials {
-  display: flex;
-  gap: 12px;
-  margin-top: 1rem;
-}
-
-.social-icon {
-  display: flex;
+.social-circle {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 40px;
   height: 40px;
   background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  color: #ffffff;
   border-radius: 50%;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition:
-    background 0.3s,
-    transform 0.2s;
+  transition: all 0.3s ease;
 }
 
-.social-icon:hover {
-  background: #ffb703;
-  color: #03045e;
+.social-circle:hover {
+  background: var(--coral-gold);
+  color: var(--primary-deep);
   transform: translateY(-3px);
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 2.5rem auto 0;
-  font-size: 0.85rem;
-  color: #94a3b8;
-}
-
-.footer-bottom-links a {
-  margin-left: 20px;
-  color: #94a3b8;
-}
-
-.footer-bottom-links a:hover {
-  color: #ffb703;
-}
-
-/* Make it responsive for mobile phones */
-@media (max-width: 768px) {
-  .footer-bottom {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-  .footer-bottom-links a {
-    margin: 0 10px;
-  }
-}
-/* ==========================================================================
-   Dedicated Staff Grid & Card Custom Layout Fixes
-   ========================================================================== */
-
-/* 1. Ensure the staff card wrapper handles sizing predictably */
-#staff-container .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%; /* Forces all cards in a row to match height perfectly */
-  background: #ffffff;
-}
-
-/* 2. Constrain and crop the staff image wrapper */
-.staff-img-wrapper {
-  width: 100%;
-  height: 280px; /* Uniform height for all profile frames */
-  overflow: hidden;
-  position: relative;
-  background-color: #e2e8f0; /* Soft fallback color while loading */
-}
-
-/* 3. Force the image to completely fill the frame nicely without warping */
-.staff-img-wrapper .staff-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Crops the portrait elegantly like a magazine layout */
-  object-position: center top; /* Keeps faces centered in the frame */
-  transition: transform 0.5s ease;
-}
-
-/* 4. Cool micro-interaction zoom effect on hover */
-.card:hover .staff-img-wrapper .staff-img {
-  transform: scale(1.05);
-}
-
-/* 5. Clean, padded layout content inside the card */
-#staff-container h3 {
-  padding: 0 20px;
-  margin-top: 1rem;
-  font-size: 1.35rem;
-  color: #03045e;
-}
-
-#staff-container .staff-role {
-  padding: 0 20px;
-  color: #0077b6;
-  font-weight: 600;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 0.2rem;
-  margin-bottom: 0.8rem;
-}
-
-#staff-container p {
-  padding: 0 20px;
-  color: #555555;
-  font-size: 0.95rem;
-  line-height: 1.5;
 }

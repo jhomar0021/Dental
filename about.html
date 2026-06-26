@@ -4,107 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omar Dental Care</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Meet Our Team | Omar Dental Care</title>
+    <!-- Bootstrap 5.3 Framework CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
-    <header>
-        <div class="nav-container">
-            <div class="logo">
-                <h1>Omar Dental Care</h1>
+
+    <!-- Responsive Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fa-solid fa-tooth fa-lg me-2 text-info"></i>
+                <span class="h4 mb-0 text-dark">Omar Dental Care</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainNavigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavigation">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold active text-info" href="about.html">Our Team</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="book.html">Book Online</a></li>
+                </ul>
             </div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="about.html" class="active">About & Team</a>
-                <a href="services.html">Services</a>
-                <a href="reviews.html">Reviews</a>
-            </nav>
         </div>
-    </header>
+    </nav>
 
-    <div class="container">
-        <h2>Our Mission Philosophy</h2>
-        <p style="margin-bottom: 3rem; max-width: 800px; font-size: 1.1rem; color: #555;">
-            At Omar Dental Care, we treat individuals, not just clinical conditions. Our dedicated clinical staff
-            bridges world-class technical skill with genuine empathy to craft restorative milestones you can smile
-            about.
-        </p>
-
-        <h2>Meet Our Specialized Care Team</h2>
-        <div id="staff-container" class="grid">
-
+    <!-- Inner Page Header -->
+    <section class="py-5 bg-light border-bottom">
+        <div class="container text-center py-4">
+            <span class="text-info fw-bold text-uppercase tracking-wider">World-Class Specialists</span>
+            <h1 class="display-4 mt-2">Meet Our Clinical Care Team</h1>
+            <p class="lead text-muted mx-auto mb-0" style="max-width: 600px;">A collection of dedicated medical experts
+                using advanced digital dentistry to perfect your oral health milestones.</p>
         </div>
-    </div>
+    </section>
 
-    <!-- Updated Production-Ready Footer Section -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-grid">
-                <!-- Column 1: Brand Pitch & Socials -->
-                <div class="footer-col">
-                    <h4>Omar Dental Care</h4>
-                    <p>Bringing elite technical performance and compassionate, gentle oral healthcare milestones to our
-                        local community ecosystems.</p>
-                    <div class="footer-socials">
-                        <a href="https://facebook.com" target="_blank" class="social-icon" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://instagram.com" target="_blank" class="social-icon" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" class="social-icon" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+    <!-- Dynamic Staff Target Grid Section -->
+    <main class="container py-5 my-4">
+        <div id="staff-container" class="row g-4">
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-info" role="status"><span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="text-muted mt-3">Loading our staff specialists portfolio profiles...</p>
+            </div>
+        </div>
+    </main>
 
+    <!-- Production Grade Universal Footer -->
+    <footer class="pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4 pb-5 border-bottom border-secondary">
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="text-gold mb-3">Omar Dental Care</h4>
+                    <p class=" small pe-lg-4">Providing elite clinical care and patient-first oral
+                        health protocols within an architectural space built to eliminate treatment anxiety completely.
+                    </p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="#" class="social-circle"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-circle"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-
-                <!-- Column 2: Quick Links -->
-                <div class="footer-col">
-                    <h4>Explore Practice</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">Meet Our Doctors</a></li>
-                        <li><a href="services.html">Dental Treatments</a></li>
-                        <li><a href="book.html">Schedule Assessment</a></li>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-3">Navigation</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Home Portal</a></li>
+                        <li class="mb-2"><a href="about.html" class="footer-link">Our Doctors</a></li>
+                        <li class="mb-2"><a href="services.html" class="footer-link">Treatments</a></li>
+                        <li class="mb-2"><a href="book.html" class="footer-link">Online Booking</a></li>
                     </ul>
                 </div>
-
-                <!-- Column 3: Medical Service Shortcuts -->
-                <div class="footer-col">
-                    <h4>Our Treatments</h4>
-                    <ul>
-                        <li><a href="service-detail.html?id=preventative">Hygiene & Cleanings</a></li>
-                        <li><a href="service-detail.html?id=cosmetic">Veneers & Whitening</a></li>
-                        <li><a href="service-detail.html?id=implants">Advanced Implants</a></li>
-                        <li><a href="service-detail.html?id=orthodontics">Clear Aligners</a></li>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-3">Our Layouts</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="service-detail.html?id=preventative" class="footer-link">Hygiene Systems</a></li>
+                        <li><a href="service-detail.html?id=cosmetic" class="footer-link">Smile Simulations</a></li>
+                        <li><a href="service-detail.html?id=implants" class="footer-link">Titanium Implants</a></li>
                     </ul>
                 </div>
-
-                <!-- Column 4: Contact & Operations -->
-                <div class="footer-col">
-                    <h4>Office Operations</h4>
-                    <p><strong>Hours:</strong><br>Mon – Fri: 8:00 AM – 6:00 PM<br>Sat: 9:00 AM – 2:00 PM</p>
-                    <p><strong>Location:</strong><br>100 Healthcare Blvd, Suite A<br><a href="https://maps.google.com"
-                            target="_blank" style="color: #ffb703; text-decoration: underline;">Get Directions</a></p>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-3">Office Contacts</h5>
+                    <p class="small  mb-1"><strong>Hours:</strong> Mon - Fri | 8AM - 6PM</p>
+                    <p class="small  mb-3"><strong>Location:</strong> 100 Healthcare Blvd, Ste A</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-vibrant btn-sm w-100">Get Digital
+                        Route Mapping</a>
                 </div>
             </div>
-
-            <!-- Footer Bottom Bar -->
-            <div class="footer-bottom">
-                <p>&copy; 2026 Omar Dental Care. All Rights Reserved. All clinical credentials verified.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Patient Rights</a>
+            <div class="d-md-flex justify-content-between pt-3 text-center small ">
+                <p class="mb-md-0">&copy; 2026 Omar Dental Care. Clinical operations verified.</p>
+                <div>
+                    <a href="#" class="text-reset text-decoration-none me-3">Privacy System</a>
+                    <a href="#" class="text-reset text-decoration-none">Terms of Care</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/app.js"></script>
 </body>
 
